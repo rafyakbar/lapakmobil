@@ -6,8 +6,8 @@
                     <div class="header">
                         Tabel Merek
                     </div>
-                    <div class="content table-responsive table-full-widt">
-                        <div style="max-height: 315px;overflow: auto">
+                    <div class="content table-responsive table-full-width">
+                        <div style="max-height: 450px;overflow: auto">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <th class="text-center">Tindakan</th>
@@ -22,9 +22,6 @@
                                 }
                                 ?>
                                 </thead>
-                                <form action='?page=proses_hapus' method='post'
-                                      onsubmit="return confirm('Anda yakin?')">
-                                    <input type="hidden" name="tabel" value="merek">
                                     <tbody>
                                     <?php
                                     $query = $GLOBALS['koneksi']->query("SELECT * FROM public.merek ORDER BY nama_merek")->fetchAll();
@@ -32,8 +29,10 @@
                                         ?>
                                         <?php
                                         print "<tr>";
-                                        print "<td class='text-center'><input type='hidden' name='id' value='" . $item['id_merek'] . "'><button type='submit' name='hapus' value='id_merek' class='btn btn-danger'>Hapus</button> <button type='button' data-toggle='modal' data-target='#"
-                                            .$item['id_merek']."' class='btn btn-success'>Lihat Tipe</button></td>";
+                                        print "<td class='text-center'><form action='?page=proses_hapus' method='post'
+                                      onsubmit=\"return confirm('Anda yakin?')\">
+                                    <input type=\"hidden\" name=\"tabel\" value=\"merek\"><input type='hidden' name='id' value='" . $item['id_merek'] . "'><button type='submit' name='hapus' value='id_merek' class='btn btn-danger'>Hapus</button> <button type='button' data-toggle='modal' data-target='#"
+                                            .$item['id_merek']."' class='btn btn-success'>Lihat Tipe</button></form></td>";
                                         for ($c = 0; $c < count($item) / 2; $c++) {
                                             print "<td class='text-center'>" . $item[$c] . "</td>";
                                         }
@@ -41,7 +40,6 @@
                                     }
                                     ?>
                                     </tbody>
-                                </form>
                             </table>
                         </div>
                         <form action="?page=tambah_merek" method="post">
@@ -88,8 +86,6 @@ foreach ($query as $item) {
                             }
                             ?>
                             </thead>
-                            <form action='?page=proses_hapus' method='post'
-                                  onsubmit="return confirm('Anda yakin?')">
                                 <input type="hidden" name="tabel" value="tipe">
                                 <tbody>
                                 <?php
@@ -97,7 +93,10 @@ foreach ($query as $item) {
                                     ->fetchAll();
                                 foreach ($query as $item) {
                                     print "<tr>";
-                                    print "<td class='text-center'><input type='hidden' name='id' value='" . $item['id_tipe'] . "'><button type='submit' name='hapus' value='id_merek' class='btn btn-danger'>Hapus</button> </td>";
+                                    print "<td class='text-center'><form action='?page=proses_hapus' method='post'
+                                  onsubmit=\"return confirm('Anda yakin?')\"><input type='hidden' name='tabel' value='tipe'><input 
+                                  type='hidden' name='id' 
+                                  value='" . $item['id_tipe'] . "'><button type='submit' name='hapus' value='id_merek' class='btn btn-danger'>Hapus</button></form></td>";
                                     for ($c = 0; $c < count($item) / 2; $c++) {
                                         print "<td class='text-center'>" . $item[$c] . "</td>";
                                     }
@@ -105,7 +104,6 @@ foreach ($query as $item) {
                                 }
                                 ?>
                                 </tbody>
-                            </form>
                         </table>
                     </div>
                 </div>

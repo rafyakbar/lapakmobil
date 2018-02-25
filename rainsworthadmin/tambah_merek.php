@@ -14,8 +14,13 @@ if (isset($_POST['submit'])){
             $counter++;
         }
     }
-    $teks='berhasil menambahkan '.$counter.' merek';
-    scriptAlert($teks);
+    if ($counter==0){
+        scriptAlert('Gagal menambahkan karena duplikasi merek!');
+    }
+    else{
+        $teks='berhasil menambahkan '.$counter.' merek';
+        scriptAlert($teks);
+    }
 }
 ?>
 <script>

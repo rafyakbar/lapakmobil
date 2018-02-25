@@ -54,6 +54,7 @@
                     include $_GET['page'] . ".php";
                 }
             } else {
+                $_SESSION['menu'] = 'Dashboard';
                 include "navbar.php";
                 include "dashboard.php";
             }

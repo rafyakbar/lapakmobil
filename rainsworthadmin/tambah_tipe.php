@@ -15,8 +15,13 @@ if (isset($_POST['submit'])){
             $counter++;
         }
     }
-    $teks='berhasil menambahkan '.$counter.' tipe '.$GLOBALS['koneksi']->query("SELECT nama_merek FROM public.merek WHERE id_merek=".$_POST['id_merek'])->fetchAll()[0][0];
-    scriptAlert($teks);
+    if ($counter==0){
+        scriptAlert('Gagal menambahkan karena duplikasi tipe!');
+    }
+    else{
+        $teks='berhasil menambahkan '.$counter.' tipe '.$GLOBALS['koneksi']->query("SELECT nama_merek FROM public.merek WHERE id_merek=".$_POST['id_merek'])->fetchAll()[0][0];
+        scriptAlert($teks);
+    }
 }
 ?>
 <script>

@@ -17,7 +17,7 @@ if (isset($_GET['tabel'])) {
                                 Tabel <?php print ucwords($_GET['tabel']); ?>
                             </div>
                             <div class="content table-responsive table-full-width">
-                                <div style="height: 385px;overflow: auto">
+                                <div style="max-height: 500px;overflow: auto">
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                         <th class="text-center">Hapus</th>

@@ -17,7 +17,6 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Pengaturan Akun</a></li>
                         <li><a href="?page=proses_log_out">Keluar dari Halaman Admin</a></li>
                     </ul>
                 </li>

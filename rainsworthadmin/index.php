@@ -36,6 +36,9 @@
     <?php
     ob_start();
     session_start();
+    if (isset($_SESSION['id_admin'])){
+        header("location:logged_in.php");
+    }
     ?>
     <div class="content">
         <div class="container-fluid">
